@@ -9,9 +9,10 @@ Write a function which takes a ROT13 encoded string as input and returns a decod
 
 All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on. */
 
-function rot13(str) { // LBH QVQ VG!
-
-  return str;
+function rot13(str) {
+  return str.replace(/[A-Z]/g, function(char) {
+    return String.fromCharCode((char.charCodeAt(0) % 26) + 65);
+  });
 }
 
 // Change the inputs below to test
